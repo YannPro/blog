@@ -102,7 +102,7 @@ section.nav.min-open .nav-wrapper ul{
 	flex: 1;
 	height: 100%;
 	color: #fff;
-	background-image: url('../image/cover-bg.gif');
+	background-image: url("/static/image/cover-bg.gif");
 	background-repeat: no-repeat;
 	background-size:cover;
 }
@@ -420,6 +420,7 @@ section.search-box .header i.close:hover{
 		width: 45px;
 		height: 45px;
 		z-index: 22;
+		background: #f49484;
 	}
 	section.nav .nav-wrapper ul{
 		display: none;
@@ -531,7 +532,7 @@ section.search-box .header i.close:hover{
     padding: 58px 40px 0;
 }
 #account .container .half.bg {
-    background-image: url(../image/account-bg.jpg);
+    background-image: url(/image/account-bg.jpg);
     background-size: 400px;
     background-repeat: no-repeat;
 }
@@ -783,7 +784,6 @@ section.search-box .header i.close:hover{
 }
 
 body {
-	background: #333;
 }
 
 #canvas {
