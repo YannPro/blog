@@ -1,13 +1,13 @@
 <template>
-    <section class="nav">
+    <section class="nav" :class="{'min-open':isOpen}">
         <div class="nav-wrapper">
-            <a href="#" class="item-nav siteName active">说</a>
+            <a href="#" class="item-nav siteName active"  @click="isOpen=!isOpen">说</a>
             <ul>
                 <li>
-                    <a class="item-nav" href="./archives.html">
+                    <router-link class="item-nav" to="/archives">
                         <i class="icon iconfont icon-guidang"></i>
                         <span class="text">归档</span>
-                    </a>
+                    </router-link>
                     <div class="bubble hide">
                         <div class="arrow">
                             <em></em>
@@ -16,10 +16,10 @@
                     </div>
                 </li>
                 <li>
-                    <a class="item-nav" href="./tags.html">
+                    <router-link class="item-nav" to="/tags">
                         <i class="icon iconfont icon-tag"></i>
                         <span class="text">标签</span>
-                    </a>
+                    </router-link>
                     <div class="bubble hide">
                         <div class="arrow">
                             <em></em>
@@ -28,10 +28,10 @@
                     </div>
                 </li>
                 <li>
-                    <a class="item-nav" href="./message.html">
+                    <router-link class="item-nav" to="/message">
                         <i class="icon iconfont icon-liuyan"></i>
                         <span class="text">留言</span>
-                    </a>
+                    </router-link>
                     <div class="bubble hide">
                         <div class="arrow">
                             <em></em>
@@ -40,10 +40,10 @@
                     </div>
                 </li>
                 <li>
-                    <a class="item-nav" href="#">
+                    <router-link class="item-nav" to="/links">
                         <i class="icon iconfont icon-lianjie1"></i>
                         <span class="text">链接</span>
-                    </a>
+                    </router-link>
                     <div class="bubble hide">
                         <div class="arrow">
                             <em></em>
@@ -52,10 +52,10 @@
                     </div>
                 </li>
                 <li>
-                    <a class="item-nav" href="#">
+                    <router-link class="item-nav" to="/about">
                         <i class="icon iconfont icon-guanyu"></i>
                         <span class="text">关于</span>
-                    </a>
+                    </router-link>
                     <div class="bubble hide">
                         <div class="arrow">
                             <em></em>
@@ -69,10 +69,11 @@
 </template>
 
 <script>
+/* eslint-disable */
 export default {
-  name: 'nav',
   data () {
     return {
+        isOpen: false
     }
   }
 }

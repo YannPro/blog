@@ -420,7 +420,6 @@ section.search-box .header i.close:hover{
 		width: 45px;
 		height: 45px;
 		z-index: 22;
-		background: #f49484;
 	}
 	section.nav .nav-wrapper ul{
 		display: none;
@@ -518,7 +517,7 @@ section.search-box .header i.close:hover{
     position: relative;
     overflow: hidden;
     width: 700px;
-    height: 500px;
+    height: 550px;
     margin: 100px auto 0;
     background: rgba(255,255,255,.3);
     -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px;
@@ -532,7 +531,7 @@ section.search-box .header i.close:hover{
     padding: 58px 40px 0;
 }
 #account .container .half.bg {
-    background-image: url(/image/account-bg.jpg);
+    background-image: url(/static/image/account-bg.jpg);
     background-size: 400px;
     background-repeat: no-repeat;
 }
@@ -734,9 +733,9 @@ section.search-box .header i.close:hover{
 #account .container .content .submit-wrap a:hover {
     text-decoration: underline;
 }
-#account .container .content .signup-cont {
+/* #account .container .content .signup-cont {
     display: none;
-}
+} */
 @keyframes slideIn {
     0% {
         filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
@@ -778,9 +777,17 @@ section.search-box .header i.close:hover{
     text-decoration: none;
 }
 @media screen and (max-width: 768px){
-	/*.half.bg{
+	#account .container{
+		width: 80%;
+		margin:0 auto;
+		box-shadow:none;
+	}
+	#account .container .half{
+		width: 100%;
+	}
+	#account .bg{
 		display: none;
-	}*/
+	}
 }
 
 body {

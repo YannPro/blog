@@ -9,8 +9,8 @@ import './assets/css/base.css'
 import './assets/css/animate.css'
 import './assets/css/markdown.css'
 import './assets/css/style.css'
-Vue.config.productionTip = false
 
+Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
