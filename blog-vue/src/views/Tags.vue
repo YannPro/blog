@@ -3,52 +3,15 @@
     <vNav></vNav>
     <vBanner></vBanner>
 		<section class="body">
-			<header class="header">
-				<div class="type-wrapper fl">
-					<ul>
-						<li class="item"><a href="../index.html">最近</a></li>
-						<li class="item active"><a href="#">前端</a></li>
-					</ul>
-				</div>
-				<div class="btn btn-denglu fr">
-					<a href="../page/login.html">
-						<i class="icon iconfont icon-denglu"></i>
-					</a>
-				</div>
-				<div class="btn btn-mode fr">
-					<a href="#">
-						<i class="icon iconfont icon-light"></i>
-					</a>
-				</div>
-				<div class="btn btn-search fr">
-					<a href="#">
-						<i class="icon iconfont icon-search"></i>
-					</a>
-				</div>
-			</header>
+      <vHeader @changeMode="changeMode"></vHeader>
 			<div id="tags" class="main">
 				<div class="article-wrapper">
 					<article>
 						<h1 class="title">标签</h1>
 						<div class="post-content markdown">
-							<!--<a href="https://lixianhua.com/tag/%E7%AE%80%E4%B9%A6/" class="btn" style="font-size:8pt;color:#f74e1e;">简书(1)</a>
-							<a href="https://lixianhua.com/tag/Ajax%E8%AF%84%E8%AE%BA/" class="btn" style="font-size:8pt;color:#ffb900;">Ajax评论(1)</a>
-							!-->
+							<router-link v-for="(item,index) in tags" :key="index" to="/" class="btn" 
+								v-bind:style="item.style">{{`${item.name}(${item.articleNum})`}}</router-link>
 						</div>
-						<!--<div class="post-content markdown"></div>
-						<div class="post-content markdown"></div>
-						<div class="post-content markdown"></div>
-						<div class="post-content markdown"></div>
-						<div class="post-content markdown"></div>
-						<div class="post-content markdown"></div>
-						<div class="post-content markdown"></div>
-						<div class="post-content markdown"></div>
-						<div class="post-content markdown"></div>
-						<div class="post-content markdown"></div>
-						<div class="post-content markdown"></div>
-						<div class="post-content markdown"></div>
-						<div class="post-content markdown"></div>
-						<div class="post-content markdown"></div>-->
 					</article>	
 					<footer>
 						<p>归档 标签 链接 留言 关于</p>
@@ -63,19 +26,74 @@
 	/* eslint-disable */ 
   import vNav from '@/components/Nav.vue'
   import vBanner from '@/components/Banner.vue'
-  import vHeader from '@/components/Header.vue'
-  // import vfooter from '@/components/footer.vue'
-  // import axios from 'axios'
+	import vHeader from '@/components/Header.vue'
+	import axios from 'axios'
   export default{
     data () {
       return {
-        'isDarkMode': false
+				'isDarkMode': false,
+				tags: [],
+				colorArr: ['#8B0000','#C0FF3E','#f49484','#333','#8B4726'
+				,'#66CDAA','#00EEEE','#FFA54F','#FFEC8B','#FF3030'],
+				sizeArr: ['10px','12px','14px','26px']
+      }
+		},
+		methods: {
+      changeMode (...data) {
+        this.isDarkMode = data[0]
       }
     },
     components: {
       vNav,
       vBanner,
       vHeader
-    }
+		},
+		mounted () {  
+			this.initTags()
+		},
+		methods: {
+			initTags () {
+				axios.get('/mock/tags.json', {}).then(res => {
+					this.tags = res.data.tags
+					let genColorArr = this.colorArr
+					let colorNum = 5
+					for(let i=0;i<this.colorArr.length-colorNum;i++){
+							genColorArr.shift();
+					}
+					/*获取tags最大值和最小组,用来分类*/
+					let numArr = [],max,min
+					for(let tag of this.tags){
+							numArr.push(tag.articleNum)
+							tag.style = {
+								
+							}
+					}
+					max = Math.max.apply(null,numArr)
+					min = Math.min.apply(null,numArr)
+					//每组字体大小的数量
+					let n = (max-min)/this.sizeArr.length
+					//暂时存储min
+					let t = min
+					//存储范围数组
+					let range = []
+					while(t <= max){
+							range.push(t)
+							t += n
+					}
+					/*给tag赋予字体的color和size*/
+					for(let tag of this.tags){
+							//设置tag对象的color
+							var index = Math.floor((Math.random()*genColorArr.length))             
+							tag.style.color = genColorArr[index];
+							//根据范围数组和文章数量设置字体大小
+							for(let i=0;i<range.length-1;i++){
+									if(range[i]<=tag.articleNum&&tag.articleNum<=range[i+1]){
+											tag.style.fontSize = this.sizeArr[i]
+									}
+							}
+					}
+				}) 
+			}
+		}
   }
 </script>

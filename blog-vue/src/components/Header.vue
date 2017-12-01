@@ -1,5 +1,5 @@
 <template>
-   <header class="header">
+   <header class="header" :class="{'min-open':this.isNavOpen}">
       <div class="type-wrapper fl">
          <ul>
             <li class="item"><router-link to="/">最近</router-link></li>
@@ -14,10 +14,8 @@
             <i class="icon iconfont icon-denglu"></i>
          </router-link>
       </div>
-      <div class="btn btn-mode fr" @click="click()">
-         <a href="#">
-            <i class="icon iconfont icon-light"></i>
-         </a>
+      <div class="btn btn-mode fr" @click="changeMode()">
+        <i class="icon iconfont icon-light"></i>
       </div>
       <div class="btn btn-search fr">
          <a href="#">
@@ -28,18 +26,28 @@
 </template>
 
 <script>
+/* eslint-disable */ 
+import bus from '../assets/eventBus'
 export default {
   name: 'Header',
   data () {
     return {
-      isDarkMode: false
+      isDarkMode: false,
+      isNavOpen: false
     }
   },
   methods: {
-    click () {
+    changeMode () {
       this.isDarkMode = !this.isDarkMode
       this.$emit('changeMode', this.isDarkMode)
     }
+  },
+  mounted () {
+    let self = this
+    bus.$on('openNav', (data) => {
+      self.isNavOpen = data
+      console.log(self.isNavOpen)
+    })
   }
 }
 </script>

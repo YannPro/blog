@@ -3,6 +3,7 @@ import Router from 'vue-router'
 
 import Login from '@/views/Login'
 import ArticleList from '@/views/ArticleList'
+import Article from '@/views/Article'
 import Archives from '@/views/Archives'
 import Tags from '@/views/Tags'
 import Message from '@/views/Message'
@@ -16,6 +17,9 @@ export default new Router({
     {
       path: '/',
       component: ArticleList
+    }, {
+      path: '/article',
+      component: Article
     }, {
       path: '/login',
       component: Login

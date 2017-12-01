@@ -13,15 +13,15 @@
                     <a href="#">
                         <i class="icon iconfont icon-qq"></i>
                     </a>
+                </div>                
+                <div class="btn btn-github">
+                    <a href="#">
+                        <i class="icon iconfont icon-github"></i>
+                    </a>
                 </div>
                 <div class="btn btn-weibo">
                     <a href="#">
                         <i class="icon iconfont icon-weibo"></i>
-                    </a>
-                </div>
-                <div class="btn btn-github">
-                    <a href="#">
-                        <i class="icon iconfont icon-github"></i>
                     </a>
                 </div>
                 <div class="btn-wrapper">

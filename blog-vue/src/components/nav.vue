@@ -1,7 +1,7 @@
 <template>
     <section class="nav" :class="{'min-open':isOpen}">
         <div class="nav-wrapper">
-            <a href="#" class="item-nav siteName active"  @click="isOpen=!isOpen">说</a>
+            <a href="#" class="item-nav siteName active"  @click="open()">说</a>
             <ul>
                 <li>
                     <router-link class="item-nav" to="/archives">
@@ -70,12 +70,23 @@
 
 <script>
 /* eslint-disable */
+import bus from '../assets/eventBus'
+
 export default {
-  data () {
-    return {
-        isOpen: false
+    data () {
+        return {
+            isOpen: false
+        }
+    },
+    methods: {
+        open () {
+            let w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+            if(w<=768){
+                this.isOpen = !this.isOpen
+            }
+            bus.$emit("openNav",this.isOpen)
+        }
     }
-  }
 }
 </script>
 

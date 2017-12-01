@@ -3,7 +3,7 @@
     <vNav></vNav>
     <vBanner></vBanner>
 		<section class="body">
-      <vHeader></vHeader>
+      <vHeader @changeMode="changeMode"></vHeader>
 			<div id="archives" class="main">
 				<div class="article-wrapper">
 				<article>

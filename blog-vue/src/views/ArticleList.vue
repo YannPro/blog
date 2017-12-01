@@ -18,7 +18,7 @@
                 <a href="#">山野呓语</a>
                 <span>11月24日</span>
               </div>
-              <div class="article-title"><a href="./page/article.html">不使用插件实现Ajax评论功能</a></div>
+              <div class="article-title"><router-link to="/article">不使用插件实现Ajax评论功能</router-link></div>
               <div class="article-abstract">为了不使表单的系统方法themeInit实现）当访问文章加载主题时，themeIni法中判断是否为了不使用插件实现Ajax评论功能需要实现：监听评论表单，改用ajax方式提交创建新的评论表单提交地址（用Typecho 主题提供的系统方法themeInit实现）当访
               </div>
               <div class="article-meta">
@@ -52,7 +52,7 @@
   export default{
     data () {
       return {
-        'isDarkMode': false
+        isDarkMode: false
       }
     },
     methods: {

@@ -3,29 +3,7 @@
     <vNav></vNav>
     <vBanner></vBanner>
 		<section class="body">
-			<header class="header">
-				<div class="type-wrapper fl">
-					<ul>
-						<li class="item"><a href="../index.html">最近</a></li>
-						<li class="item active"><a href="#">前端</a></li>
-					</ul>
-				</div>
-				<div class="btn btn-denglu fr">
-					<a href="../page/login.html">
-						<i class="icon iconfont icon-denglu"></i>
-					</a>
-				</div>
-				<div class="btn btn-mode fr">
-					<a href="#">
-						<i class="icon iconfont icon-light"></i>
-					</a>
-				</div>
-				<div class="btn btn-search fr">
-					<a href="#">
-						<i class="icon iconfont icon-search"></i>
-					</a>
-				</div>
-			</header>
+      <vHeader @changeMode="changeMode"></vHeader>
 			<div id="links" class="main">
 				<div class="article-wrapper">
 					<article>
