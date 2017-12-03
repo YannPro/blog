@@ -116,9 +116,6 @@ section.banner{
 	transition: all .3s ease;
 	-webkit-transition: all .3s ease;	
 }
-section.banner.min-open{
-	left: 100px;
-}	
 #container .author-wrapper{
 	position: absolute;
 	bottom:20px;
@@ -170,6 +167,7 @@ section.banner.min-open{
 }
 section.body{
 	position: relative;
+	left: 0;
 	width: 100%;
 	transition: all .3s ease;
 	-webkit-transition: all .3s ease;
@@ -178,7 +176,7 @@ section.body{
 .body .header{
 	position: fixed;
 	top: 0;
-	left: 45px;
+	left: calc(30% + 45px);
 	right: 0;
 	width:auto;
 	height: 43px;
@@ -243,7 +241,7 @@ section.body{
 	transition: all .3s ease;
 	-webkit-transition: all .3s ease;
 }
-.body .main .article-wrapper{
+.body #scroll.main .article-wrapper{
 	height: 100%;
 	padding-right: 125px;
 }
@@ -447,6 +445,12 @@ section.search-box .header i.close:hover{
 	}
 	.nav-wrapper ul li:hover .bubble{
 		display: none;
+	}	
+	section.body.min-open{
+		left: 100px;
+	}
+	.body .header{
+		left: 45px;
 	}
 	.body .header.min-open{
 		left: 100px;
@@ -457,11 +461,11 @@ section.search-box .header i.close:hover{
 	.body .main{
 		padding:20px 0% 20px 0%;
 	}
-	#container .body .main.min-open{
-		left: 100px;
-	}
 	#container.single .body .main{
 		padding:20px 0 20px 50px;
+	}
+	.body .main .article-wrapper{
+		padding-right: 0;
 	}
 	.body .article-box{
 		padding: 0 0 0 15px;
@@ -471,6 +475,9 @@ section.search-box .header i.close:hover{
 	}
 }
 @media screen and (min-width: 1588px){
+	#container{
+		margin-left: 170px;
+	}
 	section.nav{
 		width: 170px;
 	}
@@ -492,10 +499,9 @@ section.search-box .header i.close:hover{
 	section.banner{
 		left: 170px;
 	}
-	section.body{
-		padding: 0 0 0 calc(30% + 170px);		
+	.body .header{
+		left: calc(170px + 30%);
 	}
-	
 }
 
 
