@@ -1,0 +1,35 @@
+{
+    "navs": [
+       {
+          "category" :"archives",
+          "url" : "/archives",
+          "icon" : "icon-guidang",
+          "text" : "归档",
+          "isActive": false
+       },{
+          "category" :"tags",
+          "url" : "/tags",
+          "icon" : "icon-tag",
+          "text" : "标签",
+          "isActive": false
+       },{
+        "category" :"message",
+        "url" : "/message",
+        "icon" : "icon-liuyan",
+        "text" : "留言",
+        "isActive": false
+     },{
+        "category" :"links",
+        "url" : "/links",
+        "icon" : "icon-lianjie1",
+        "text" : "链接",
+        "isActive": false
+     },{
+        "category" :"about",
+        "url" : "/about",
+        "icon" : "icon-guanyu",
+        "text" : "关于",
+        "isActive": false
+     }
+    ]
+ }

@@ -1,6 +1,6 @@
 <template>
   <div id="container" class="single" :class="{'mode-dark':isDarkMode}">
-    <vNav></vNav>
+    <vNav :category="category"></vNav>
     <vBanner></vBanner>
 		<section class="body">
       <vHeader @changeMode="changeMode"></vHeader>
@@ -88,6 +88,7 @@
   export default{
     data () {
       return {
+				category: 'archives',
         isDarkMode: false
       }
 		},

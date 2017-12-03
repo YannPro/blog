@@ -1,6 +1,6 @@
 <template>
   <div id="container" class="single" :class="{'mode-dark':isDarkMode}">
-    <vNav></vNav>
+    <vNav :category="category"></vNav>
     <vBanner></vBanner>
 		<section class="body">
       <vHeader @changeMode="changeMode"></vHeader>
@@ -30,19 +30,15 @@
 	import axios from 'axios'
   export default{
     data () {
-      return {
-				'isDarkMode': false,
+      return {				
+        category: 'tags',
+				isDarkMode: false,
 				tags: [],
 				colorArr: ['#8B0000','#C0FF3E','#f49484','#333','#8B4726'
 				,'#66CDAA','#00EEEE','#FFA54F','#FFEC8B','#FF3030'],
 				sizeArr: ['10px','12px','14px','26px']
       }
 		},
-		methods: {
-      changeMode (...data) {
-        this.isDarkMode = data[0]
-      }
-    },
     components: {
       vNav,
       vBanner,
@@ -52,6 +48,9 @@
 			this.initTags()
 		},
 		methods: {
+			changeMode (...data) {
+        this.isDarkMode = data[0]
+      },
 			initTags () {
 				axios.get('/mock/tags.json', {}).then(res => {
 					this.tags = res.data.tags

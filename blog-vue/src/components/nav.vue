@@ -3,64 +3,16 @@
         <div class="nav-wrapper">
             <a href="#" class="item-nav siteName active"  @click="open()">说</a>
             <ul>
-                <li>
-                    <router-link class="item-nav" to="/archives">
-                        <i class="icon iconfont icon-guidang"></i>
-                        <span class="text">归档</span>
+                <li v-for="(nav,index) in navs" :key="index" :class="{'active':nav.isActive}">
+                    <router-link class="item-nav" :to="nav.url">
+                        <i class="icon iconfont" :class="nav.icon"></i>
+                        <span class="text">{{nav.text}}</span>
                     </router-link>
                     <div class="bubble hide">
                         <div class="arrow">
                             <em></em>
                         </div>
-                        归档
-                    </div>
-                </li>
-                <li>
-                    <router-link class="item-nav" to="/tags">
-                        <i class="icon iconfont icon-tag"></i>
-                        <span class="text">标签</span>
-                    </router-link>
-                    <div class="bubble hide">
-                        <div class="arrow">
-                            <em></em>
-                        </div>
-                        标签
-                    </div>
-                </li>
-                <li>
-                    <router-link class="item-nav" to="/message">
-                        <i class="icon iconfont icon-liuyan"></i>
-                        <span class="text">留言</span>
-                    </router-link>
-                    <div class="bubble hide">
-                        <div class="arrow">
-                            <em></em>
-                        </div>
-                        留言
-                    </div>
-                </li>
-                <li>
-                    <router-link class="item-nav" to="/links">
-                        <i class="icon iconfont icon-lianjie1"></i>
-                        <span class="text">链接</span>
-                    </router-link>
-                    <div class="bubble hide">
-                        <div class="arrow">
-                            <em></em>
-                        </div>
-                        链接
-                    </div>
-                </li>
-                <li>
-                    <router-link class="item-nav" to="/about">
-                        <i class="icon iconfont icon-guanyu"></i>
-                        <span class="text">关于</span>
-                    </router-link>
-                    <div class="bubble hide">
-                        <div class="arrow">
-                            <em></em>
-                        </div>
-                        关于
+                        {{nav.text}}
                     </div>
                 </li>
             </ul>
@@ -71,12 +23,27 @@
 <script>
 /* eslint-disable */
 import bus from '../assets/eventBus'
+import axios from 'axios'
 
 export default {
+    props: [
+        'category'
+    ],
     data () {
         return {
-            isOpen: false
+            isOpen: false,
+            navs: []
         }
+    },
+    mounted () {
+        axios.get('/mock/navs.json',{}).then((res) => {
+            this.navs = res.data.navs
+            for(let item of this.navs){
+                if(item.category === this.category){
+                    item.isActive = true
+                } 
+            }
+        })
     },
     methods: {
         open () {

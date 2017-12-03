@@ -1,6 +1,6 @@
 <template>
   <div id="container" class="single" :class="{'mode-dark':isDarkMode}">
-    <vNav></vNav>
+    <vNav :category="category"></vNav>
     <vBanner></vBanner>
 		<section class="body">
       <vHeader @changeMode="changeMode"></vHeader>
@@ -30,7 +30,8 @@
   // import axios from 'axios'
   export default{
     data () {
-      return {
+      return {				
+        category: 'links',
         isDarkMode: false
       }
 		},
