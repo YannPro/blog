@@ -12,12 +12,12 @@
                             <blockquote><p>有什么需要联系我的可以再此留下您想说的信息,我会尽快回复您!</p></blockquote>
                         </div>
 					</article>
-					<footer>
-						<p>归档 标签 链接 留言 关于</p>
-						<p>© 2017 山野呓语 · Typecho · 赣ICP备10004449号-5	· Theme By 山野呓语</p>
-					</footer>
 				</div>
 			</div>
+      <footer>
+        <p>归档 标签 链接 留言 关于</p>
+        <p>© 2017 山野呓语 · Typecho · 赣ICP备10004449号-5	· Theme By 山野呓语</p>
+      </footer>
 		</section>
   </div>
 </template>

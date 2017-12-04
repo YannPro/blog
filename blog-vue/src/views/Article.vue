@@ -246,13 +246,14 @@ $(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span c
         <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
     });
 });</code></pre><p>ajax评论需要自定义评论模板，获取使用其他方式拼接评论html。</p><p>评论form表单的提交按钮需要添加<code>class="submit"</code>或修改代码为其他自定义的class </p><p>注：需开启评论的反垃圾保护</p><p>有任何问题请留言……</p>	</div>
-						<footer>
-							<p>归档 标签 链接 留言 关于</p>
-							<p>© 2017 山野呓语 · Typecho · 赣ICP备10004449号-5	· Theme By 山野呓语</p>
-						</footer>
+						
 					</article>
 				</div>
 			</div>
+            <footer>
+                <p>归档 标签 链接 留言 关于</p>
+                <p>© 2017 山野呓语 · Typecho · 赣ICP备10004449号-5	· Theme By 山野呓语</p>
+            </footer>
 		</section>
   </div>
 </template>

@@ -12,25 +12,33 @@
 	background-color: #383838;
 }
 body{
-	display: flex;
 	overflow: hidden;
 } 
 #container{
-	display: flex;
 	position: relative;
-	right: 0;
-	top: 0;
-	width: 100%;
 	height: 100%;
+	margin-left: 45px;
+	padding-left: 30%;
 	text-align: center;
+	background:#fff;
+	overflow-y:scroll; 
+	z-index: 110;
 }
-section.nav{
+section.nav{	
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
 	width: 45px;
 	background: #2A2A2A;
 	color: #fff;
 	transition: all .3s ease;
 	-webkit-transition: all .3s ease;
 	z-index: 100;
+}
+section.nav.min-open{
+	width: 100px;
+	height: 100%;
 }
 section.nav.min-open .nav-wrapper ul{
 	display: block;
@@ -93,14 +101,20 @@ section.nav.min-open .nav-wrapper ul{
 	border-width: 8px;
 }
 /*end nav*/
-.banner{
-	position: relative;
-	flex: 1;
+section.banner{
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 45px;
+	width: 30%;
 	height: 100%;
 	color: #000;
 	background-image: url("/static/image/cover-bg4.gif");
 	background-repeat: no-repeat;
 	background-size:cover;
+	z-index: 101;
+	transition: all .3s ease;
+	-webkit-transition: all .3s ease;
 }
 #container .author-wrapper{
 	position: absolute;
@@ -165,22 +179,21 @@ section.nav.min-open .nav-wrapper ul{
 }
 section.body{
 	position: relative;
-	flex: 2;
-	height:100%;
-	margin-left: 0;
+	min-height: calc(100% - 45px);
+	padding-top: 45px;
 	background:#ffffff;
-	overflow:hidden;
 	transition: all .3s ease;
 	-webkit-transition: all .3s ease;
 	box-shadow: -6px 0 10px #f49484;
+	z-index: 120;
 }
 #container .body .main.min-open{
 	margin-left: 55px;
 }
 .body .header{
-	position: absolute;
+	position: fixed;
 	top: 0;
-	left: 0;
+	left: calc(30% + 45px);
 	right: 0;
 	width:auto;
 	height: 43px;
@@ -235,18 +248,20 @@ section.body{
 	margin-left:-4px; 
 }
 .body #scroll.main{
-	position: absolute;
-	top: 43px;
-	left: 0px;
-	right: 0;
-	bottom: 0;
+	position: relative;
 	width:auto;
 	height: auto;
-	padding: 20px 10% 20px 0px;
-	overflow-y:scroll; 
 }
-.body .main .article-wrapper{
+.body .main{
+	min-height: 400px;
+	padding-bottom: 100px !important;
 	height: 100%;
+	transition: all .3s ease;
+	-webkit-transition: all .3s ease;
+}
+.body #scroll.main .article-wrapper{
+	height: 100%;	
+	padding-right: 125px;
 }
 .single .body .main .article-wrapper article{
 	min-height: calc(100% - 170px);
@@ -337,13 +352,14 @@ section.body{
 	background: #ccc;
 }	
 section.body footer{
-	padding: 20px 0;
+	position: absolute;
+	bottom: 15px;
+	left: 10px;
 	width: 100%;
 	text-align: left;
 	font-size: 14px;
 }
 .single section.body footer{
-	padding: 40px 0 100px 0;
 }
 /*.single section.body footer{
 	padding-top: 50px;
@@ -422,14 +438,17 @@ section.search-box .header i.close:hover{
 	color: #f49484;
 }
 @media screen and (max-width: 768px){
+	#container{
+		margin-left:0;
+		padding-left: 0;
+	}
 	.banner{
 		display: none;
 	}
 	section.nav{
 		width: 45px;
 		height: 45px;
-		margin-right: -45px;
-		z-index: 22;
+		z-index: 200;
 	}
 	section.nav.min-open{
 		width: 100px;
@@ -451,25 +470,27 @@ section.search-box .header i.close:hover{
 	.nav-wrapper ul li:hover .bubble{
 		display: none;
 	}
-	.body{
-		/* margin-left: -90px; */
+	section.body.min-open{
+		left: 100px;
 	}
 	.body .header{
-		padding-left: 45px;
+		left: 45px;
 	}
 	.body .header.min-open{
-		padding-left: 0;
+		left: 100px;
 	}
 	.body #scroll{
-		left: 45px;
 		padding:0;
 	}
-	.body #scroll.main{
-		padding:20px 2% 20px 0px;
+	.body .main{
+		padding:20px 0% 20px 0%;
 	}
 	#container.single .body .main{
 		padding:20px 0 20px 20px;
-	}
+	}	
+	.body .main .article-wrapper{
+		padding-right: 0;
+	}	
 	.body .article-box{
 		padding: 0 0 0 15px;
 	}
@@ -478,6 +499,9 @@ section.search-box .header i.close:hover{
 	}
 }
 @media screen and (min-width: 1588px){
+	#container{
+		margin-left: 170px;
+	}
 	section.nav{
 		width: 170px;
 	}
@@ -495,6 +519,12 @@ section.search-box .header i.close:hover{
 	}
 	.nav-wrapper ul li:hover .bubble{
 		display: none;
+	}	
+	section.banner{
+		left: 170px;
+	}
+	.body .header{
+		left: calc(170px + 30%);
 	}
 }
 
@@ -808,9 +838,6 @@ section.search-box .header i.close:hover{
 	}
 }
 
-body {
-}
-
 #canvas {
 	position: absolute;
 	width: 100%;
@@ -822,12 +849,8 @@ body {
 */
 .single .body .main{
 	position: relative;
-	top: 43px;
-	min-height: 400px;
-	height: 100%;
 	margin: 0 auto;
 	padding: 20px 5% 20px 5%;
-	overflow-y: scroll; 
 }
 .single .body .main .article-wrapper .markdown{
 	padding: 20px 10px;

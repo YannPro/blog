@@ -12,13 +12,13 @@
 							<router-link v-for="(item,index) in tags" :key="index" to="/" class="btn" 
 								v-bind:style="item.style">{{`${item.name}(${item.articleNum})`}}</router-link>
 						</div>
-					</article>	
-					<footer>
-						<p>归档 标签 链接 留言 关于</p>
-						<p>© 2017 山野呓语 · Typecho · 赣ICP备10004449号-5	· Theme By 山野呓语</p>
-					</footer>
+					</article>
 				</div>
-			</div>
+			</div>	
+			<footer>
+				<p>归档 标签 链接 留言 关于</p>
+				<p>© 2017 山野呓语 · Typecho · 赣ICP备10004449号-5	· Theme By 山野呓语</p>
+			</footer>
 		</section> 
   </div>
 </template>

@@ -52,6 +52,7 @@ export default {
                 this.isOpen = !this.isOpen
             }
             bus.$emit("openNav",this.isOpen)
+            this.$emit('openNav', this.isOpen)
         }
     }
 }

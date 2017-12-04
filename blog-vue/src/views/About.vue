@@ -1,8 +1,8 @@
 <template>
   <div id="container" class="single" :class="{'mode-dark':isDarkMode}">
-    <vNav :category="category"></vNav>
+    <vNav :category="category" @openNav="openNav"></vNav>
     <vBanner></vBanner>
-    <section class="body">
+    <section class="body" :class="{'min-open':isOpen}">
       <vHeader @changeMode="changeMode"></vHeader>
 			<div id="about" class="main">
 				<div class="article-wrapper">
@@ -12,12 +12,12 @@
 							<p>90后伪宅男程序猿</p><ul><li><p>昵称：绛木子</p></li><li><p>职业：程序猿</p></li><li><p>爱好：吃好吃的，睡大觉……</p></li><li><p>特长：特长！</p></li><li><p>QQ：MzU0MTI3MTYy</p></li><li><p>QQ群: <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=cd36073c6e4f9371546ad3c496738f8967327da0a31379ae88fc2a0fa8f25006">点我进群</a></p></li><li><p>邮箱：master#lixianhua.com</p></li></ul>
 						</div>
 					</article>
-					<footer>
-						<p>归档 标签 链接 留言 关于</p>
-						<p>© 2017 山野呓语 · Typecho · 赣ICP备10004449号-5	· Theme By 山野呓语</p>
-					</footer>
 				</div>
 			</div>
+      <footer>
+        <p>归档 标签 链接 留言 关于</p>
+        <p>© 2017 山野呓语 · Typecho · 赣ICP备10004449号-5	· Theme By 山野呓语</p>
+      </footer>
 		</section>
   </div>
 </template>
@@ -32,12 +32,16 @@
     data () {
       return {				
         category: 'about',
-        'isDarkMode': false
+        'isDarkMode': false,
+        'isOpen': false
       }
 		},
 		methods: {
       changeMode (...data) {
         this.isDarkMode = data[0]
+      },
+      openNav (...data){
+        this.isOpen = data[0]
       }
 		},
 		components: {
