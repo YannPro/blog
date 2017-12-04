@@ -36,6 +36,17 @@ export default {
         }
     },
     mounted () {
+        const that = this
+        window.onresize = () => {
+            return (() => {
+                let w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+                if(w>768){
+                    this.isOpen = false
+                    bus.$emit("openNav",this.isOpen)
+                    this.$emit('openNav', this.isOpen)
+                }
+            })()
+        }
         axios.get('/mock/navs.json',{}).then((res) => {
             this.navs = res.data.navs
             for(let item of this.navs){

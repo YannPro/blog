@@ -1,3 +1,4 @@
+	/* eslint-disable */ 
 'use strict'
 const path = require('path')
 const utils = require('./utils')
@@ -26,7 +27,7 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
-      'jquery': path.resolve(__dirname, '../static/js/jquery.min.js'),      
+      'jquery': "jquery/src/jquery"  
     }
   },
   module: {
@@ -77,13 +78,11 @@ module.exports = {
       }
     ]
   },
-  plugins: [
-    // 3. 配置全局使用 jquery
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      jquery: 'jquery',
-      'window.jQuery': 'jquery'
-    })
-  ]
+  plugins: [  
+    new webpack.ProvidePlugin({  
+      $: 'jquery',  
+      jQuery: 'jquery',  
+      'windows.jQuery': 'jquery'  
+    })  
+  ],
 }

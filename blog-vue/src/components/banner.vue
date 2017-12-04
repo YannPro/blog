@@ -9,36 +9,40 @@
             <h3 class="siteTitle">让我们来聊点哲学</h3>
             <p class="siteDesc">一个大学生的个人博客</p>
             <div class="contactInfo">
-                <div class="btn btn-qq">
-                    <a href="#">
-                        <i class="icon iconfont icon-qq"></i>
-                    </a>
-                </div>                
-                <div class="btn btn-github">
-                    <a href="#">
-                        <i class="icon iconfont icon-github"></i>
-                    </a>
+                <div v-for="(item,index) in contacts" @click="openUrl(item.url)" class="btn" :class="item.name">
+                    <router-link to="#">
+                        <i class="icon iconfont" :class="item.icon"></i>
+                    </router-link>
+                    <div class="qrcode hide" v-show="item.hasPic">
+                        <img src="/static/image/wechat.png" width="100" alt="">
+                    </div>
+                    <div class="qrcode-arrow"><em></em></div>
                 </div>
-                <div class="btn btn-weibo">
-                    <a href="#">
-                        <i class="icon iconfont icon-weibo"></i>
-                    </a>
-                </div>
-                <div class="btn-wrapper">
-
-                </div>
-                <div class="btn-wrapper"></div>					
             </div>
         </footer>
     </section>		
 </template>
 
 <script>
+/* eslint-disable */
+import axios from 'axios'
 export default {
   name: 'Banner',
   data () {
     return {
+        contacts: []
     }
+  },
+  mounted () {
+    axios.get('/mock/contacts.json',{}).then((res) => {
+        this.contacts = res.data.contacts
+        console.log(this.contacts)
+    })
+  },
+  methods: {
+      openUrl (url) {
+        window.open(url)
+      }
   }
 }
 </script>

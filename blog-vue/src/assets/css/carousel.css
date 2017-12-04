@@ -1,0 +1,273 @@
+@charset 'utf-8';
+#banner {
+  width: 80%;
+  margin-left: 30px;
+}
+.carousel {
+  position: relative;
+}
+.carousel-inner {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+.carousel-inner > .item {
+  display: none;
+  position: relative;
+  -webkit-transition: 0.6s ease-in-out left;
+  -o-transition: 0.6s ease-in-out left;
+  transition: 0.6s ease-in-out left;
+}
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  line-height: 1;
+}
+@media all and (transform-3d), (-webkit-transform-3d) {
+  .carousel-inner > .item {
+    -webkit-transition: -webkit-transform 0.6s ease-in-out;
+    -moz-transition: -moz-transform 0.6s ease-in-out;
+    -o-transition: -o-transform 0.6s ease-in-out;
+    transition: transform 0.6s ease-in-out;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000px;
+    -moz-perspective: 1000px;
+    perspective: 1000px;
+  }
+  .carousel-inner > .item.next,
+  .carousel-inner > .item.active.right {
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+    left: 0;
+  }
+  .carousel-inner > .item.prev,
+  .carousel-inner > .item.active.left {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+    left: 0;
+  }
+  .carousel-inner > .item.next.left,
+  .carousel-inner > .item.prev.right,
+  .carousel-inner > .item.active {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    left: 0;
+  }
+}
+.carousel-inner > .active,
+.carousel-inner > .next,
+.carousel-inner > .prev {
+  display: block;
+}
+.carousel-inner > .active {
+  left: 0;
+}
+.carousel-inner > .next,
+.carousel-inner > .prev {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.carousel-inner > .next {
+  left: 100%;
+}
+.carousel-inner > .prev {
+  left: -100%;
+}
+.carousel-inner > .next.left,
+.carousel-inner > .prev.right {
+  left: 0;
+}
+.carousel-inner > .active.left {
+  left: -100%;
+}
+.carousel-inner > .active.right {
+  left: 100%;
+}
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 72px;
+  height: 36px;
+  line-height: 36px;
+  margin-top: -18px;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  font-size: 18px;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0);
+  opacity: 0;
+  transition: 0.1s ease-in;
+  -webkit-transition: 0.1s ease-in;
+  -moz-transition: 0.1s ease-in;
+  -o-transition: 0.1s ease-in;
+  -ms-transition: 0.1s ease-in;
+  background-image: none;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.carousel-control.left {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+.carousel-control.right {
+  left: auto;
+  right: 0;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.carousel-control:hover,
+.carousel-control:focus {
+  outline: 0;
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.9;
+  filter: alpha(opacity=90);
+}
+.carousel-control .icon-prev,
+.carousel-control .icon-next {
+  width: 100%;
+  height: 100%;
+}
+.carousel:hover .carousel-control {
+  opacity: 1;
+  transition: 0.1s ease-in;
+  -webkit-transition: 0.1s ease-in;
+  -moz-transition: 0.1s ease-in;
+  -o-transition: 0.1s ease-in;
+  -ms-transition: 0.1s ease-in;
+}
+.carousel-indicators {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  z-index: 15;
+  width: 60%;
+  margin-left: -30%;
+  padding-left: 0;
+  list-style: none;
+  text-align: center;
+}
+.carousel-indicators li {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 1px;
+  text-indent: -999px;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #000 \9;
+  background-color: rgba(0, 0, 0, 0);
+}
+.carousel-indicators .active {
+  margin: 0;
+  width: 12px;
+  height: 12px;
+  background-color: #fff;
+}
+.carousel-caption {
+  position: absolute;
+  left: 15%;
+  right: 15%;
+  bottom: 20px;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+.carousel-caption .btn {
+  text-shadow: none;
+}
+@media screen and (min-width: 768px) {
+  .carousel-caption {
+    left: 20%;
+    right: 20%;
+    padding-bottom: 30px;
+  }
+  .carousel-indicators {
+    bottom: 20px;
+  }
+}
+#banner .banner-item{
+	display: block;
+	width: 100%;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	overflow: hidden;
+}
+#banner .banner-item::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transition: .1s ease-in;
+  -webkit-transition: .1s ease-in;
+  -moz-transition: .1s ease-in;
+  -o-transition: .1s ease-in;
+  -ms-transition: .1s ease-in;
+}
+#banner .banner-item:hover::after{
+  background-color: rgba(0,0,0,.08)
+}
+#banner,#banner .carousel-inner, #banner .carousel-inner .banner-item{
+	height: 220px;
+}
+#banner .carousel-inner > .item.active, #banner .carousel-inner > .item.top, #banner .carousel-inner > .item.bottom{
+	position: absolute;
+	display: block;
+}
+#banner .carousel-inner > .item.active{
+	top: 0;
+	left: 0;
+	width: 61%;
+}
+#banner .carousel-inner > .item.top, #banner .carousel-inner > .item.bottom {
+	right: 0;
+	width: 39%;
+	height: 110px;
+}
+#banner .carousel-inner > .item.bottom{
+	bottom: 0;
+}
+#banner .carousel-inner > .item.active .banner-item{
+	border-top-left-radius: 4px;
+	border-bottom-left-radius: 4px;
+}
+#banner .carousel-inner > .item.top .banner-item{
+	height: 100%;
+	border-top-right-radius: 4px;
+}
+#banner .carousel-inner > .item.bottom .banner-item{
+	height: 100%;
+	border-bottom-right-radius: 4px;
+}
+@media (max-width: 768px) {
+  #banner {
+    width: 100%;
+    margin-left: 0px;
+  }
+	/* #banner,#banner .carousel-inner, #banner .carousel-inner .banner-item{
+		height: 180px;
+	} */
+	#banner .carousel-inner > .item.active, #banner .carousel-inner > .item.top, #banner .carousel-inner > .item.bottom{
+		position: static;
+	}
+	#banner .carousel-inner > .item.active{
+		width: 100%;
+	}
+	#banner .carousel-inner > .item.top, #banner .carousel-inner > .item.bottom{
+		display: none;
+	}
+	#banner .carousel-inner > .item.active .banner-item{
+		border-radius: 4px;
+	}
+}

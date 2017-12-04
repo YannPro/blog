@@ -1,8 +1,8 @@
 <template>
   <div id="container" class="single" :class="{'mode-dark':isDarkMode}">
-    <vNav :category="category"></vNav>
+    <vNav :category="category" @openNav="openNav"></vNav>
     <vBanner></vBanner>
-		<section class="body">
+		<section class="body" :class="{'min-open':isOpen}">
       <vHeader @changeMode="changeMode"></vHeader>
 			<div id="tags" class="main">
 				<div class="article-wrapper">
@@ -33,6 +33,7 @@
       return {				
         category: 'tags',
 				isDarkMode: false,
+        'isOpen': false,
 				tags: [],
 				colorArr: ['#8B0000','#C0FF3E','#f49484','#333','#8B4726'
 				,'#66CDAA','#00EEEE','#FFA54F','#FFEC8B','#FF3030'],
@@ -50,6 +51,9 @@
 		methods: {
 			changeMode (...data) {
         this.isDarkMode = data[0]
+      },
+      openNav (...data){
+        this.isOpen = data[0]
       },
 			initTags () {
 				axios.get('/mock/tags.json', {}).then(res => {

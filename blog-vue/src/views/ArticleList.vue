@@ -1,12 +1,36 @@
 <template>
   <div id="container" :class="{'mode-dark':isDarkMode}">
-    <vNav></vNav>
+    <vNav @openNav="openNav"></vNav>
     <vBanner></vBanner>
-    <section class="body">
+    <section class="body" :class="{'min-open':isOpen}">
       <vHeader @changeMode="changeMode"></vHeader>
       <div id="scroll" class="main">
-        <div class="focus-wrapper">
-        </div>
+				<div class="focus-wrapper">
+					<div id="banner" class="carousel slide" data-ride="carousel" data-interval="5000" data-multi="true">
+						<div class="carousel-inner" role="listbox">
+							<div class="item">
+								<a class="banner-item" href="/" style="background-image:url('/static/image/3035073355.png');" title="TeMenu插件使用文档"></a>
+							</div>
+							<div class="item active">
+								<a class="banner-item" href="/" style="background-image:url('/static/image/3257680062.png');" title="仿简书响应式Typecho博客主题 (2016.11.28更新)"></a>
+								</div>
+							<div class="item ">
+								<a class="banner-item" href="/" style="background-image:url('/static/image/3824495239.png');" title="付费Typecho主题：Widget "></a>
+							</div>
+							<div class="item ">
+								<a class="banner-item" href="/" style="background-image:url('/static/image/1833653880.png');" title="Typecho评论增强插件：TeComment（2017.09.07更新）"></a>
+							</div>
+						</div>
+						<a class="left carousel-control" href="#banner" role="button" data-slide="prev">
+							<span class="icon icon-prev" aria-hidden="true"></span>
+							<span class="sr-only">上一篇</span>
+						</a>
+						<a class="right carousel-control" href="#banner" role="button" data-slide="next">
+							<span class="icon icon-next" aria-hidden="true"></span>
+							<span class="sr-only">下一篇</span>
+						</a>
+					</div>
+				</div>
         <div class="article-wrapper" >				
           <article v-for="n in 10">
             <a href="" class="cover-img"></a>
@@ -47,18 +71,25 @@
   import vNav from '@/components/Nav.vue'
   import vBanner from '@/components/Banner.vue'
   import vHeader from '@/components/Header.vue'
+  import carousel from '@/lib/carousel.js'
   // import vfooter from '@/components/footer.vue'
   // import axios from 'axios'
   export default{
     data () {
       return {
-        isDarkMode: false
+        isDarkMode: false,
+        'isOpen': false
       }
     },
     methods: {
       changeMode (...data) {
         this.isDarkMode = data[0]
+      },
+      openNav (...data){
+        this.isOpen = data[0]
       }
+    },
+    mounted () {
     },
     components: {
       vNav,
@@ -67,3 +98,6 @@
     }
   }
 </script>
+<style scoped>
+  @import '../assets/css/carousel'
+</style>

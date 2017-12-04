@@ -1,8 +1,8 @@
 <template>
   <div id="container" class="single" :class="{'mode-dark':isDarkMode}">
-      <vNav></vNav>
+      <vNav @openNav="openNav"></vNav>
       <vBanner></vBanner>
-      <section class="body">
+      <section class="body" :class="{'min-open':isOpen}">
         <vHeader @changeMode="changeMode"></vHeader>
 			<div id="article" class="main">
 				<div class="article-wrapper">
@@ -267,7 +267,8 @@ $(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span c
   export default{
     data () {
       return {
-        isDarkMode: false
+        isDarkMode: false,
+        'isOpen': false
       }
     },
     components: {
@@ -278,6 +279,9 @@ $(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span c
     methods: {
       changeMode (...data) {
         this.isDarkMode = data[0]
+      },
+      openNav (...data){
+        this.isOpen = data[0]
       }
     }
   }

@@ -1,8 +1,8 @@
 <template>
   <div id="container" class="single" :class="{'mode-dark':isDarkMode}">
-    <vNav :category="category"></vNav>
+    <vNav :category="category" @openNav="openNav"></vNav>
     <vBanner></vBanner>
-		<section class="body">
+		<section class="body" :class="{'min-open':isOpen}">
       <vHeader @changeMode="changeMode"></vHeader>
 			<div id="links" class="main">
 				<div class="article-wrapper">
@@ -32,12 +32,16 @@
     data () {
       return {				
         category: 'links',
-        isDarkMode: false
+        isDarkMode: false,
+        'isOpen': false
       }
 		},
 		methods: {
       changeMode (...data) {
       	this.isDarkMode = data[0]
+      },
+      openNav (...data){
+        this.isOpen = data[0]
       }
     },
     components: {

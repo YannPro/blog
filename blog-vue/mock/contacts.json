@@ -1,0 +1,29 @@
+{
+   "contacts": [
+      {
+         "name" :"github",
+         "url" : "https://github.com/YannPro",
+         "icon" : "icon-github",
+         "text" : "github",
+         "hasPic": false
+      },{
+         "name" :"weibo",
+         "url" : "https://github.com/YannPro",
+         "icon" : "icon-weibo",
+         "text" : "weibo",
+         "hasPic": false
+      },{
+         "name" :"qq",
+         "url" : "https://github.com/YannPro",
+         "icon" : "icon-qq",
+         "text" : "qq",
+         "hasPic": true
+      },{
+         "name" :"weixin",
+         "url" : "https://github.com/YannPro",
+         "icon" : "icon-weixin",
+         "text" : "weixin",
+         "hasPic": true
+      }
+   ]
+}

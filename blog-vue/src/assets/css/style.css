@@ -52,7 +52,7 @@ section.nav.min-open .nav-wrapper ul{
 .nav-wrapper ul li:hover{
 	background: #f49484;
 }
-.nav-wrapper ul li:hover .bubble{
+.nav-wrapper ul li:hover>.bubble{
 	display: block;
 }
 .nav-wrapper ul li.active,.nav-wrapper>a.active{
@@ -76,7 +76,7 @@ section.nav.min-open .nav-wrapper ul{
 .nav-wrapper ul .item-nav span.text{
 	display: none;
 }
-.nav-wrapper ul li .bubble{
+.nav-wrapper ul li>.bubble{
 	position: absolute;
 	top: 0px;
 	left: 58px;
@@ -112,7 +112,7 @@ section.banner{
 	background-image: url("/static/image/cover-bg4.gif");
 	background-repeat: no-repeat;
 	background-size:cover;
-	z-index: 101;
+	z-index: 99;
 	transition: all .3s ease;
 	-webkit-transition: all .3s ease;
 }
@@ -158,6 +158,7 @@ section.banner{
 	margin-top: 15px;
 }
 .author-wrapper .btn{
+	position: relative;
 	width: 30px;
 	height: 30px;
 	padding: 0;
@@ -166,12 +167,35 @@ section.banner{
 	margin-right: 6px;
 	color: #fff;	
 }
-.author-wrapper .btn-qq{	
+.author-wrapper .contactInfo>.qq{	
 	background: #1DA1F2;
 }
-.author-wrapper .btn-weibo{	
+.author-wrapper .contactInfo>.weibo{	
 	background: #f49484;
 }
+.author-wrapper .contactInfo>.weixin{	
+	background: #5de466;
+}
+.author-wrapper .contactInfo>.btn:hover .qrcode{	
+	display: block;
+}
+.author-wrapper .contactInfo>.btn .qrcode{	
+	position: absolute;
+	bottom: 40px;
+	left: -50px;
+	width: 100px;
+	height: 100px;
+}
+.author-wrapper .contactInfo>.btn .qrcode-arrow>em{
+	position: absolute;
+	bottom: 20px;
+	left: 50px;
+	border-style:solid dashed dashed dashed; 
+	font-size:0; 
+	line-height:0;
+	border-color:transparent #000  transparent transparent;
+	border-width: 8px;
+}	
 .author-wrapper .btn i.icon{	
 	font-size: 20px;
 	width: 25px;
@@ -179,12 +203,13 @@ section.banner{
 }
 section.body{
 	position: relative;
+	left: 0;
 	min-height: calc(100% - 45px);
 	padding-top: 45px;
 	background:#ffffff;
 	transition: all .3s ease;
 	-webkit-transition: all .3s ease;
-	box-shadow: -6px 0 10px #f49484;
+	box-shadow: -16px -10px 8px -8px #f49484;
 	z-index: 120;
 }
 #container .body .main.min-open{
@@ -194,7 +219,7 @@ section.body{
 	position: fixed;
 	top: 0;
 	left: calc(30% + 45px);
-	right: 0;
+	right: 16px;
 	width:auto;
 	height: 43px;
 	background:#ffffff;
@@ -268,7 +293,7 @@ section.body{
 }
 .body .focus-wrapper{
 	width: 100%;
-	height: 400px;
+	margin: 40px 0 100px 0;
 }
 .body .article-box{
 	padding: 0 170px 0 15px;
@@ -354,7 +379,6 @@ section.body{
 section.body footer{
 	position: absolute;
 	bottom: 15px;
-	left: 10px;
 	width: 100%;
 	text-align: left;
 	font-size: 14px;
@@ -489,7 +513,7 @@ section.search-box .header i.close:hover{
 		padding:20px 0 20px 20px;
 	}	
 	.body .main .article-wrapper{
-		padding-right: 0;
+		padding-right: 0 !important;
 	}	
 	.body .article-box{
 		padding: 0 0 0 15px;
