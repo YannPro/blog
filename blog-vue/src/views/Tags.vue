@@ -14,6 +14,7 @@
 						</div>
 					</article>
 				</div>
+				<vComments></vComments>
 			</div>	
 			<footer>
 				<p>归档 标签 链接 留言 关于</p>
@@ -27,6 +28,7 @@
   import vNav from '@/components/Nav.vue'
   import vBanner from '@/components/Banner.vue'
 	import vHeader from '@/components/Header.vue'
+	import vComments from '@/components/Comments.vue'
 	import axios from 'axios'
   export default{
     data () {
@@ -43,7 +45,8 @@
     components: {
       vNav,
       vBanner,
-      vHeader
+			vHeader,
+			vComments
 		},
 		mounted () {  
 			this.initTags()

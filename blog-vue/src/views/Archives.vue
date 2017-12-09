@@ -6,7 +6,7 @@
       <vHeader @changeMode="changeMode"></vHeader>
 			<div id="archives" class="main">
 				<div class="article-wrapper">
-				<article>
+					<article>
 						<h1 class="title">归档</h1>
 						<div class="tl-wrapper">
 							<div class="timeline">
@@ -70,6 +70,7 @@
 						</div>
 					</article>
 				</div>
+				<vComments></vComments>
 			</div>	
 			<footer>
 				<p>归档 标签 链接 留言 关于</p>
@@ -82,7 +83,8 @@
 	/* eslint-disable */ 
   import vNav from '@/components/Nav.vue'
   import vBanner from '@/components/Banner.vue'
-  import vHeader from '@/components/Header.vue'
+	import vHeader from '@/components/Header.vue'
+	import vComments from '@/components/Comments.vue'
   // import vfooter from '@/components/footer.vue'
   // import axios from 'axios'
   export default{
@@ -104,7 +106,8 @@
 		components: {
       vNav,
       vBanner,
-      vHeader
+			vHeader,
+			vComments
     }
   }
 </script>
